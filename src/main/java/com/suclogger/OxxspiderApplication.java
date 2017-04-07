@@ -30,7 +30,6 @@ public class OxxspiderApplication implements CommandLineRunner {
     @Override
     public void run(String... strings) throws Exception {
         for(int i=1; i<21; i++) {
-            Thread.sleep(5000);
             ThreadPoolFactory.getThreadPool().execute(new OxxTask(i, repo));
         }
     }
