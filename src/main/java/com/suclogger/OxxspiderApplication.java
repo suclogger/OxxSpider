@@ -29,7 +29,7 @@ public class OxxspiderApplication implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        for(int i=1; i<21; i++) {
+        for(int i=1; i<101; i++) {
             ThreadPoolFactory.getThreadPool().execute(new OxxTask(i, repo));
         }
     }
@@ -53,7 +53,8 @@ public class OxxspiderApplication implements CommandLineRunner {
             CloseableHttpClient httpclient = HttpClients.createDefault();
             try {
                 // 创建httpget.
-                HttpGet httpget = new HttpGet("https://oxxvideo.com/?g=&page=" + pageNo + "&pagesize=500&datatype=json");
+                HttpGet httpget = new HttpGet("https://oxxvideo.com/?g=&page=" + pageNo + "&pagesize=100&datatype=json");
+//                HttpGet httpget = new HttpGet("https://oxxvideo.com/hot?g=&page=" + pageNo + "&pagesize=100&datatype=json");
                 // 执行get请求.
                 CloseableHttpResponse response = httpclient.execute(httpget);
                 try {
